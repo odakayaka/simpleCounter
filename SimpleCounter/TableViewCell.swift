@@ -10,6 +10,8 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
+    var number:Int = 0
+    
     @IBOutlet var doLabel: UILabel!
     @IBOutlet var countLabel:UILabel!
 
@@ -24,4 +26,8 @@ class TableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func doTapped(){
+        number = number + 1
+        countLabel.text = String(number)
+    }
 }

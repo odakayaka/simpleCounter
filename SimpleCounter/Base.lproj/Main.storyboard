@@ -29,6 +29,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="一覧" id="qUK-1m-YMK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="OFv-jC-YKu">
+                            <connections>
+                                <action selector="editButtonPushed" destination="eqP-78-tiw" id="34q-eB-Syo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="FBG-J3-Fl1">
                             <connections>
                                 <segue destination="JEa-35-cT4" kind="push" id="M7T-3x-904"/>

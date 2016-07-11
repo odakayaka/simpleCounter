@@ -71,6 +71,25 @@ class TableViewController: UITableViewController {
         return cell
     }
     
+    //Editボタン
+    @IBAction func editButtonPushed(){
+        if (listTable.editing == true){
+            listTable.editing = false
+        }else{
+            listTable.editing = true
+        }
+    }
+    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    //セルの並び替え
+    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let targetTitle = listArray[sourceIndexPath.row]
+        listArray.removeAtIndex(sourceIndexPath.row)
+        listArray.insert(targetTitle, atIndex: destinationIndexPath.row)
+        saveData.setObject(listArray, forKey: "DO")
+    }
+
 
 
     /*
