@@ -89,6 +89,16 @@ class TableViewController: UITableViewController {
         listArray.insert(targetTitle, atIndex: destinationIndexPath.row)
         saveData.setObject(listArray, forKey: "DO")
     }
+    
+    //削除
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        //削除の時
+        if (editingStyle == UITableViewCellEditingStyle.Delete){
+            listArray.removeAtIndex(indexPath.row)
+            saveData.setObject(listArray, forKey: "DO")
+            listTable.reloadData()
+        }
+    }
 
 
 
