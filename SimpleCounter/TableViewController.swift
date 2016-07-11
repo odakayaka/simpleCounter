@@ -65,14 +65,13 @@ class TableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! TableViewCell
         
-        cell.doLabel.text = listArray[indexPath.row] as? String
+        let nowIndexPathDictionary: (AnyObject) = listArray[indexPath.row]
+        cell.doLabel.text = nowIndexPathDictionary["do"] as? String
         
         return cell
     }
     
-  //  @IBAction func back(segue:UIStoryboardSegue){
-        
-    
+
 
     /*
     // Override to support conditional editing of the table view.

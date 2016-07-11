@@ -22,8 +22,6 @@ class AddViewController: UIViewController , UITextFieldDelegate{
         if saveData.arrayForKey("DO") != nil{
             listArray = saveData.arrayForKey("DO")!
         }
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,17 +36,24 @@ class AddViewController: UIViewController , UITextFieldDelegate{
 //    }
     
     @IBAction func doneBtn(sender: UIBarButtonItem){
-        listArray.append(self.doTextField.text!)
+        
+        let doDictionary = ["do":doTextField.text!]
+        
+        listArray.append(doDictionary)
         saveData.setObject(listArray, forKey: "DO")
         NSUserDefaults.standardUserDefaults().synchronize()
+        
+        //画面を戻す
+        self.navigationController!.popToRootViewControllerAnimated(true)
+        
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-            let tableViewController = segue.destinationViewController as? TableViewController
-            tableViewController!.index = self.index
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//            let tableViewController = segue.destinationViewController as? TableViewController
+//            tableViewController!.index = self.index
+//    }
     
-    
+
     
 
     /*
